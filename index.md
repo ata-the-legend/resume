@@ -41,7 +41,7 @@ description: "{{ site.data.config.description }}"
                         {% endfor %}
                     </select>
                 </div>
-                <a href="{{ site.baseurl }}/resume/{{ site.data.config.resume.primary_version }}.pdf" class="download-btn" id="download-btn" download>
+                <a href="{{ site.baseurl }}/{{ site.data.config.resume.primary_version }}.pdf" class="download-btn" id="download-btn" download>
                     📥 Download PDF
                 </a>
             </div>
@@ -61,7 +61,7 @@ description: "{{ site.data.config.description }}"
                     <li>
                         <div class="version-name">{{ version.name }}</div>
                         <div class="version-desc">{{ version.description }}</div>
-                        <a href="{{ site.baseurl }}/resume/{{ version.file }}.pdf" download>Download PDF</a>
+                        <a href="{{ site.baseurl }}/{{ version.file }}.pdf" download>Download PDF</a>
                     </li>
                     {% endfor %}
                 </ul>
@@ -127,7 +127,7 @@ description: "{{ site.data.config.description }}"
 
     // Load PDF function
     function loadPDF(filename) {
-        const pdfPath = `${config.baseurl}/resume/${filename}.pdf`;
+        const pdfPath = `${config.baseurl}/${filename}.pdf`;
         
         // Show loading
         pdfContainer.innerHTML = '<div class="loading">Loading resume...</div>';
