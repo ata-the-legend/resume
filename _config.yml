@@ -17,7 +17,6 @@ plugins:
 
 # Exclude files from processing
 exclude:
-  - resume/
   - scripts/
   - node_modules/
   - vendor/
@@ -27,6 +26,7 @@ exclude:
   - "*.fls"
   - "*.fdb_latexmk"
   - "*.synctex.gz"
+  - "*.tex"
   - Gemfile
   - Gemfile.lock
   - README.md
