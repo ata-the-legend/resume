@@ -8,6 +8,9 @@ gem "jekyll-feed"
 gem "jekyll-sitemap" 
 gem "jekyll-seo-tag"
 
+# Faraday retry for GitHub Pages compatibility
+gem "faraday-retry"
+
 # Windows and JRuby does not include zoneinfo files
 gem "tzinfo", "~> 1.2"
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]

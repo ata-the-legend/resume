@@ -20,6 +20,8 @@ exclude:
   - resume/
   - scripts/
   - node_modules/
+  - vendor/
+  - .bundle/
   - "*.log"
   - "*.aux"
   - "*.fls"
@@ -28,7 +30,10 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - README.md
+  - README_SIMPLE.md
+  - SETUP.md
   - LICENSE
+  - config.yml
 
 # Include files that start with underscore
 include:

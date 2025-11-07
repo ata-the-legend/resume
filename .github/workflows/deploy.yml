@@ -120,6 +120,7 @@ jobs:
           gem "jekyll-feed"
           gem "jekyll-sitemap"
           gem "jekyll-seo-tag"
+          gem "faraday-retry"
           EOF
 
       - name: Install dependencies
