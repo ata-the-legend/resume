@@ -83,13 +83,13 @@ description: "{{ site.data.config.description }}"
             </div>
 
             <!-- About -->
-            <div class="card">
+            <!-- <div class="card">
                 <h3>ℹ️ About</h3>
                 <p>This resume is automatically generated from LaTeX source files and deployed using GitHub Pages. The source code is available on GitHub.</p>
                 <a href="https://github.com/{{ site.data.config.contact.github }}/resume" class="github-link" target="_blank">
                     🐙 View Source Code
                 </a>
-            </div>
+            </div> -->
         </div>
     </div>
 
