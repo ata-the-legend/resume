@@ -137,8 +137,20 @@ jobs:
           export BUILD_DATE=$(date '+%B %d, %Y')
           echo "BUILD_DATE=$BUILD_DATE" >> $GITHUB_ENV
           
+          # List PDFs before build
+          echo "PDFs available in root:"
+          ls -la *.pdf || echo "No PDFs found"
+          
           # Build the site
           bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
+          
+          # Copy PDFs to _site after Jekyll build
+          echo "Copying PDFs to _site..."
+          cp *.pdf _site/ 2>/dev/null || echo "No PDFs to copy"
+          
+          # Verify PDFs are in the built site
+          echo "Checking PDFs in built site:"
+          ls -la _site/*.pdf || echo "No PDFs in _site"
         env:
           JEKYLL_ENV: production
 
