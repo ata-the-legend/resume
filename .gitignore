@@ -1,0 +1,57 @@
+# Jekyll build files
+_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
+
+# LaTeX auxiliary files
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+*.synctex.gz
+*.out
+*.toc
+*.bbl
+*.blg
+*.bcf
+*.run.xml
+
+# Backup files
+*.backup
+*~
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Ruby/Bundle files
+.bundle/
+vendor/
+Gemfile.lock
+
+# Node.js files (if using npm for any tools)
+node_modules/
+npm-debug.log*
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Temporary files
+.tmp/
+tmp/
+
+# PDF files in root (copied during build)
+/*.pdf
+
+# Environment files
+.env
+.env.local

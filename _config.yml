@@ -1,0 +1,61 @@
+# Jekyll Configuration for GitHub Pages
+
+# Site settings
+title: "Ata Safapour - Resume"
+description: "Software Engineer with 2+ years of experience architecting scalable microservices and event-driven systems"
+baseurl: "/resume"
+url: "https://ata-the-legend.github.io"
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+theme: minima
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# Exclude files from processing
+exclude:
+  - resume/
+  - scripts/
+  - node_modules/
+  - "*.log"
+  - "*.aux"
+  - "*.fls"
+  - "*.fdb_latexmk"
+  - "*.synctex.gz"
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - LICENSE
+
+# Include files that start with underscore
+include:
+  - "_*"
+
+# Collections
+collections:
+  data:
+    output: false
+
+# Default settings
+defaults:
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "default"
+
+# SEO and social
+author: Ata Safapour
+twitter:
+  username: 
+  card: summary
+
+# GitHub repository info (for GitHub Pages)
+repository: ata-the-legend/resume
+github_username: ata-the-legend
+
+# Resume-specific configuration (loaded from config.yml)
+# This will be merged with the main configuration

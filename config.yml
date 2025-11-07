@@ -1,0 +1,68 @@
+# Resume Configuration
+# This file controls which resume version is displayed and downloadable
+
+# Basic Information
+name: "Ata Safapour"
+title: "Software Engineer"
+description: "Software Engineer with 2+ years of experience architecting scalable microservices and event-driven systems"
+
+# Resume Settings
+resume:
+  # The main resume file to use (without .tex extension)
+  primary_version: "ata_safapour_resume_v3.0.0"
+  
+  # Alternative versions available for download
+  versions:
+    - name: "Standard Version"
+      file: "ata_safapour_resume_v3.0.0"
+      description: "Full professional resume"
+    - name: "Simple Version" 
+      file: "ata_safapour_resume_v3.0.0_simple"
+      description: "Simplified layout version"
+    - name: "Fixed Version"
+      file: "ata_safapour_resume_v3.0.0_fixed"
+      description: "Alternative formatting"
+
+# Contact Information
+contact:
+  phone: "+98 914 698 2635"
+  email: "safapour.ata@gmail.com"
+  linkedin: "ata-safapour"
+  github: "ata-the-legend"
+  website: "https://ata-the-legend.github.io/resume/"
+
+# GitHub Pages Settings
+site:
+  title: "Ata Safapour - Resume"
+  url: "https://ata-the-legend.github.io/resume/"
+  author: "Ata Safapour"
+  theme_color: "#0e6e55"
+  background_color: "#ffffff"
+
+# PDF Generation Settings
+pdf:
+  # LaTeX compiler to use
+  compiler: "pdflatex"
+  # Additional LaTeX packages to ensure are installed
+  required_packages:
+    - "fontawesome5"
+    - "charter" 
+    - "cormorantgaramond"
+    - "titlesec"
+    - "enumitem"
+    - "hyperref"
+    - "fancyhdr"
+    - "multicol"
+    - "bookmark"
+    - "lastpage"
+    - "xcolor"
+    - "ragged2e"
+    - "fullpage"
+
+# Display Settings
+display:
+  show_last_updated: true
+  show_download_button: true
+  show_version_selector: true
+  enable_dark_mode: false
+  enable_print_styles: true

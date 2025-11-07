@@ -1,0 +1,32 @@
+# Resume Data Configuration
+# This file is loaded by Jekyll and contains all resume metadata
+
+# Personal Information
+name: "Ata Safapour"
+title: "Software Engineer"
+description: "Software Engineer with 2+ years of experience architecting scalable microservices and event-driven systems"
+
+# Resume Settings
+resume:
+  primary_version: "ata_safapour_resume_v3.0.0"
+  versions:
+    - name: "Standard Version"
+      file: "ata_safapour_resume_v3.0.0"
+      description: "Full professional resume"
+
+
+# Contact Information
+contact:
+  phone: "+98 914 698 2635"
+  email: "safapour.ata@gmail.com"
+  linkedin: "ata-safapour"
+  github: "ata-the-legend"
+  website: "https://ata-the-legend.github.io/resume/"
+
+# Display Settings
+display:
+  show_last_updated: true
+  show_download_button: true
+  show_version_selector: true
+  enable_dark_mode: false
+  enable_print_styles: true

@@ -1,0 +1,159 @@
+name: Build and Deploy Resume
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build-latex:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install LaTeX packages
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            texlive-latex-base \
+            texlive-latex-recommended \
+            texlive-latex-extra \
+            texlive-fonts-recommended \
+            texlive-fonts-extra \
+            texlive-xetex \
+            texlive-luatex \
+            latexmk
+
+      - name: Install additional LaTeX packages
+        run: |
+          # Install packages that might not be included by default
+          sudo apt-get install -y \
+            texlive-pictures \
+            texlive-science \
+            texlive-humanities
+
+      - name: Compile LaTeX documents
+        run: |
+          cd resume
+          
+          # Function to compile LaTeX safely
+          compile_latex() {
+            local file="$1"
+            local base="${file%.tex}"
+            
+            echo "Compiling $file..."
+            
+            # Try compilation with error handling
+            if pdflatex -interaction=nonstopmode "$file"; then
+              echo "✓ Successfully compiled $base.pdf"
+            else
+              echo "⚠ First compilation failed for $file, trying again..."
+              if pdflatex -interaction=nonstopmode "$file"; then
+                echo "✓ Successfully compiled $base.pdf on second attempt"
+              else
+                echo "✗ Failed to compile $file"
+                return 1
+              fi
+            fi
+          }
+          
+          # Compile all tex files
+          for tex_file in *.tex; do
+            if [ -f "$tex_file" ]; then
+              compile_latex "$tex_file" || echo "Warning: Failed to compile $tex_file"
+            fi
+          done
+          
+          # List generated PDFs
+          echo "Generated PDFs:"
+          ls -la *.pdf || echo "No PDFs generated"
+
+      - name: Copy PDFs to root for GitHub Pages
+        run: |
+          # Copy all generated PDFs to the root directory for GitHub Pages
+          cp resume/*.pdf . 2>/dev/null || echo "No PDFs to copy"
+          ls -la *.pdf || echo "No PDFs in root"
+
+      - name: Upload PDFs as artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: resume-pdfs
+          path: '*.pdf'
+          retention-days: 30
+
+  build-site:
+    needs: build-latex
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Download PDF artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: resume-pdfs
+          path: .
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.1'
+          bundler-cache: true
+
+      - name: Create Gemfile
+        run: |
+          cat > Gemfile << 'EOF'
+          source "https://rubygems.org"
+          gem "github-pages", group: :jekyll_plugins
+          gem "jekyll-feed"
+          gem "jekyll-sitemap"
+          gem "jekyll-seo-tag"
+          EOF
+
+      - name: Install dependencies
+        run: |
+          bundle install
+
+      - name: Setup Pages
+        id: pages
+        uses: actions/configure-pages@v4
+
+      - name: Build with Jekyll
+        run: |
+          # Set build date for the site
+          export BUILD_DATE=$(date '+%B %d, %Y')
+          echo "BUILD_DATE=$BUILD_DATE" >> $GITHUB_ENV
+          
+          # Build the site
+          bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
+        env:
+          JEKYLL_ENV: production
+
+      - name: Upload site artifacts
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./_site
+
+  deploy:
+    if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build-site
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
