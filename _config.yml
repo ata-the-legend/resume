@@ -39,11 +39,6 @@ exclude:
 include:
   - "_*"
 
-# Collections
-collections:
-  data:
-    output: false
-
 # Default settings
 defaults:
   - scope:
