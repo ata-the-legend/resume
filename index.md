@@ -5,6 +5,10 @@ description: "{{ site.data.config.description }}"
 ---
 
 <div class="container">
+    <!-- Debug: Check if data is accessible -->
+    <!-- Debug: site.data.config.name = {{ site.data.config.name }} -->
+    <!-- Debug: site.data.config.resume.primary_version = {{ site.data.config.resume.primary_version }} -->
+    
     <!-- Header -->
     <header class="header">
         <h1>{{ site.data.config.name }}</h1>
