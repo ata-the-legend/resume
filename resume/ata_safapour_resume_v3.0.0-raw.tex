@@ -1,0 +1,212 @@
+
+\documentclass[a4paper,10pt]{article}
+%%%%%%%%%%%%%%%%%%%%%%%
+%% BEGIN_FILE: mteck.sty (A4-optimized inline)
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage{fontawesome5}
+\usepackage{multicol}
+\usepackage{bookmark}
+\usepackage{lastpage}
+\usepackage{CormorantGaramond}
+\usepackage{charter}
+\usepackage{xcolor}
+
+\definecolor{accentTitle}{HTML}{0e6e55}
+\definecolor{accentText}{HTML}{0e6e55}
+\definecolor{accentLine}{HTML}{a16f0b}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\urlstyle{same}
+
+% --- Adjust margins for A4 and compact layout ---
+\addtolength{\oddsidemargin}{-0.6in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1.2in}
+\addtolength{\topmargin}{-0.8in}
+\addtolength{\textheight}{1.6in}
+
+\setlength{\multicolsep}{-5pt}
+\setlength{\columnsep}{-1pt}
+\setlength{\tabcolsep}{0pt}
+\setlength{\footskip}{6pt}
+\raggedbottom
+\raggedright
+
+\input{glyphtounicode}
+\pdfgentounicode=1
+
+\newcommand{\documentTitle}[2]{
+  \begin{center}
+    {\Huge\color{accentTitle} #1}
+    \vspace{8pt}
+    {\color{accentLine} \hrule}
+    \vspace{1pt}
+    \footnotesize{#2}
+    \vspace{1pt}
+    {\color{accentLine} \hrule}
+  \end{center}
+}
+
+\newcommand{\documentFooter}[1]{
+  \setlength{\footskip}{10pt}
+  \fancyfoot[C]{\footnotesize #1}
+}
+
+\titleformat{\section}{
+  \vspace{-5pt}
+  \color{accentText}
+  \raggedright\large\bfseries
+}{}{0em}{}[\color{accentLine}\titlerule]
+
+\newcommand{\tinysection}[1]{
+  \phantomsection
+  \addcontentsline{toc}{section}{#1}
+  {\large{\bfseries\color{accentText}#1} {\color{accentLine} |}}
+}
+
+\newcommand{\heading}[2]{
+  \hspace{10pt}#1\hfill#2\\
+}
+
+\newcommand{\headingBf}[2]{\heading{\textbf{#1}}{\textbf{#2}}}
+\newcommand{\headingIt}[2]{\heading{\textit{#1}}{\textit{#2}}}
+
+\newenvironment{resume_list}{
+  \vspace{-6pt}
+  \begin{itemize}[itemsep=-1px, parsep=0pt, leftmargin=28pt]
+}{
+  \end{itemize}
+}
+
+\renewcommand\labelitemi{--}
+%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+%======================%
+% Header + Summary     %
+%======================%
+
+\documentTitle{
+  {\Huge\textbf{Ata Safapour}}\\[3pt]
+  {\Large\color{accentText}\textbf{Software Engineer}}
+  }{
+    \href{tel:+989146982635}{\raisebox{-0.05\height}\faPhone\ +98 914 698 2635} ~ | ~
+    \href{mailto:safapour.ata@gmail.com}{\raisebox{-0.15\height}\faEnvelope\ safapour.ata@gmail.com} ~ | ~
+    \href{https://linkedin.com/in/ata-safapour}{\raisebox{-0.15\height}\faLinkedin\ ata-safapour} ~ | ~
+    \href{https://github.com/ata-the-legend}{\raisebox{-0.15\height}\faGithub\ ata-the-legend}
+    }
+    
+    
+    %---------%
+    % Summary %
+    %---------%
+    \tinysection{Summary}
+    Software Engineer with 2+ years of experience architecting scalable microservices and event-driven systems using Python and FastAPI. Passionate about solving complex technical challenges and delivering high-quality software solutions.
+    
+    
+    %--------%
+    % Skills %
+    %--------%
+    \section{Skills}
+    \begin{multicols}{2}
+      \begin{itemize}[itemsep=-2px, parsep=0pt, leftmargin=70pt]
+        \item[\textbf{Languages}] Python
+        \item[\textbf{Frameworks}] FastAPI, Django, Flask, Celery, FastStream
+        \item[\textbf{Databases}] MongoDB, PostgreSQL, MySQL
+        \item[\textbf{DevOps}] Docker, Git, GitLab CI/CD, Proxmox, Tailscale
+        \item[\textbf{Monitoring}] Sentry, Prometheus, Grafana, ELK Stack
+        \item[\textbf{Other Tools}] Ansible, Casdoor, Pi-hole, Mailu, Jitsi, RabbitMQ, Kong
+      \end{itemize}
+    \end{multicols}
+    
+    %-----------%
+    % Education %
+    %-----------%
+    \section{Education}
+    
+    \headingBf{University of Tehran}{2021 -- 2024}
+    \headingIt{Master’s in Power Electronics}{}
+    \begin{resume_list}
+      \item Ranked \textbf{4th} in the National Master’s Entrance Exam (Power Electronics).
+      \item Designed control algorithms for grid-connected inverters to minimize DC-link oscillations.
+    \end{resume_list}
+
+%------------%
+% Experience %
+%------------%
+\section{Professional Experience}
+
+\headingBf{Torfehnegar Holding}{May 2024 -- Present}
+\headingIt{Software Engineer}{Tehran, Iran}
+\begin{resume_list}
+  \item Architected and developed \textbf{event-driven microservices platform} using \textbf{FastAPI} and \textbf{RabbitMQ}, enabling asynchronous communication between services through signal-based messaging patterns.
+  \item Led \textbf{monolithic-to-microservices migration} using \textbf{strangler-fig pattern}, successfully decomposing legacy system while maintaining zero downtime and backward compatibility.
+  \item Engineered \textbf{multi-tenant SaaS platform} with tenant isolation at database and application layers, supporting scalable B2B operations across multiple organizations.
+  \item Designed and implemented \textbf{Meet Microservice} integrating multiple third-party providers (Jitsi, etc.) with \textbf{Factory design pattern} for provider abstraction and permission management.
+  \item Built \textbf{Direct Meet Scheduling Service} orchestrating interactions between Persona, Meet, and Notification microservices for seamless individual appointment booking.
+  \item Developed \textbf{Course Management Microservice} supporting online, offline, and in-person formats using \textbf{OOP generic classes}, integrating with Notify, Meet, Space, File, and Persona services.
+  \item Maintained and enhanced \textbf{IAM microservice} based on \textbf{Casdoor} with \textbf{sidecar pattern}, managing role assignments and SSO whitelist functionality for secure authentication.
+  \item Migrated database layer from \textbf{Motor async driver} to \textbf{Beanie ODM}, improving code maintainability and developer productivity with schema validation and type safety.
+  \item Implemented \textbf{Kong API Gateway} for centralized routing, rate limiting, and authentication across microservices ecosystem.
+  \item Optimized \textbf{MongoDB} query performance by \textbf{40\%} through indexing strategies and aggregation pipeline optimization, significantly reducing API response times.
+  \item Built secure \textbf{multi-data-center network} using \textbf{Tailscale} mesh VPN and \textbf{Pi-hole} for DNS-level security and network segmentation.
+  \item Established \textbf{CI/CD pipelines} with \textbf{GitLab Actions} for automated testing, building, and deployment across staging and production environments.
+  \item Deployed comprehensive \textbf{observability stack} (\textbf{Sentry}, \textbf{Prometheus}, \textbf{Grafana}) for real-time monitoring, error tracking, and performance metrics visualization.
+  \item Managed isolated development and staging environments on \textbf{Proxmox VE}, enabling parallel feature development and thorough testing before production releases.
+  \item Deployed and maintained internal self-hosted services (\textbf{Mailu} email, \textbf{Jitsi} video conferencing) to reduce external dependencies and operational costs.
+\end{resume_list}
+
+\headingBf{Freelance}{Mar 2023 -- May 2024}
+\headingIt{Backend Developer}{Remote}
+\begin{resume_list}
+  \item \textbf{E-commerce Platform:} Full-stack Django/DRF system with Celery \& RabbitMQ; secure payment and async processing.
+  \item \textbf{LLM-Powered Semantic Search:} Retrieval-Augmented Generation (RAG) system for semantic query handling using LLMs.
+  \item \textbf{ASR \& Translation Tool:} Real-time English ASR integrated with multilingual translation APIs.
+\end{resume_list}
+
+
+%-----------------%
+% Certifications %
+%-----------------%
+\section{Certifications}
+
+\headingBf{Daneshkargroup}{2023}
+\headingIt{Python / Django Coding Bootcamp}{}
+\begin{resume_list}
+  \item Completed intensive backend training focused on Python, Django, and RESTful API development.
+\end{resume_list}
+%-----------%
+% Projects %
+%-----------%
+% \section{Projects}
+
+% \headingBf{LLM-Based Semantic Search System}{2024}
+% \begin{resume_list}
+%   \item Developed a retrieval system integrating transformer models and vector databases for semantic search.
+% \end{resume_list}
+
+% \headingBf{Automated CI/CD Stack}{2024}
+% \begin{resume_list}
+%   \item Built a self-hosted deployment and monitoring stack using GitLab, Docker, Prometheus, and Grafana.
+% \end{resume_list}
+
+\documentFooter{\thepage/\pageref{LastPage}}
+
+\end{document}
+
+% great. lets dive in to experiance section
+% this so general
+% Architected a multi-tenant microservices platform with FastAPI.
+
+% lets break it to some better bullet points
+% i will decribe my work and you should suggest some bullet points for them. bold importent key words on each bullet point. give me some advice to make this perfect.
+

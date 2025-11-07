@@ -1,0 +1,366 @@
+
+\documentclass[a4paper,10pt]{article}
+%%%%%%%%%%%%%%%%%%%%%%%
+%% BEGIN_FILE: mteck.sty (A4-optimized inline)
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage{fontawesome5}
+\usepackage{multicol}
+\usepackage{bookmark}
+\usepackage{lastpage}
+\usepackage{CormorantGaramond}
+\usepackage{charter}
+\usepackage{xcolor}
+
+\definecolor{accentTitle}{HTML}{0e6e55}
+\definecolor{accentText}{HTML}{0e6e55}
+\definecolor{accentLine}{HTML}{a16f0b}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\urlstyle{same}
+
+% --- Adjust margins for A4 and compact layout ---
+\addtolength{\oddsidemargin}{-0.6in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1.2in}
+\addtolength{\topmargin}{-0.8in}
+\addtolength{\textheight}{1.6in}
+
+\setlength{\multicolsep}{-5pt}
+\setlength{\columnsep}{-1pt}
+\setlength{\tabcolsep}{0pt}
+\setlength{\footskip}{6pt}
+\raggedbottom
+\raggedright
+
+\input{glyphtounicode}
+\pdfgentounicode=1
+
+\newcommand{\documentTitle}[2]{
+  \begin{center}
+    {\Huge\color{accentTitle} #1}
+    \vspace{8pt}
+    {\color{accentLine} \hrule}
+    \vspace{1pt}
+    \footnotesize{#2}
+    \vspace{1pt}
+    {\color{accentLine} \hrule}
+  \end{center}
+}
+
+\newcommand{\documentFooter}[1]{
+  \setlength{\footskip}{10pt}
+  \fancyfoot[C]{\footnotesize #1}
+}
+
+\titleformat{\section}{
+  \vspace{-5pt}
+  \color{accentText}
+  \raggedright\large\bfseries
+}{}{0em}{}[\color{accentLine}\titlerule]
+
+\newcommand{\tinysection}[1]{
+  \phantomsection
+  \addcontentsline{toc}{section}{#1}
+  {\large{\bfseries\color{accentText}#1} {\color{accentLine} |}}
+}
+
+\newcommand{\heading}[2]{
+  \hspace{10pt}#1\hfill#2\\
+}
+
+\newcommand{\headingBf}[2]{\heading{\textbf{#1}}{\textbf{#2}}}
+\newcommand{\headingIt}[2]{\heading{\textit{#1}}{\textit{#2}}}
+
+\newenvironment{resume_list}{
+  \vspace{-6pt}
+  \begin{itemize}[itemsep=-1px, parsep=0pt, leftmargin=28pt]
+}{
+  \end{itemize}
+}
+
+\renewcommand\labelitemi{--}
+%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\documentTitle{Ata Safapour}{
+  \href{tel:+989146982635}{\raisebox{-0.05\height}\faPhone\ +98 914 698 2635} ~ | ~
+  \href{mailto:safapour.ata@gmail.com}{\raisebox{-0.15\height}\faEnvelope\ safapour.ata@gmail.com} ~ | ~
+  \href{https://linkedin.com/in/ata-safapour}{\raisebox{-0.15\height}\faLinkedin\ linkedin.com/in/ata-safapour} ~ | ~
+  \href{https://github.com/ata-the-legend}{\raisebox{-0.15\height}\faGithub\ github.com/ata-the-legend}
+}
+
+%---------%
+% Summary %
+%---------%
+\tinysection{Summary}
+Software Engineer with over 2 years of experience designing, developing, and deploying scalable backend systems and DevOps solutions.
+Proficient in Python, FastAPI, and microservices architecture, with a strong foundation in power electronics and control systems.
+Experienced in optimizing database performance, implementing CI/CD automation, and deploying monitoring solutions across distributed systems.
+
+%--------%
+% Skills %
+%--------%
+\section{Skills}
+\begin{multicols}{2}
+  \begin{itemize}[itemsep=-2px, parsep=0pt, leftmargin=70pt]
+    \item[\textbf{Languages}] Python, SQL, Bash
+    \item[\textbf{Frameworks}] FastAPI, Django, Flask, Celery
+    \item[\textbf{Databases}] MongoDB, PostgreSQL
+    \item[\textbf{Message Queues}] RabbitMQ
+    \item[\textbf{DevOps}] Docker, Git, GitLab CI/CD, Proxmox, Tailscale
+    \item[\textbf{Monitoring}] Sentry, Prometheus, Grafana, ELK Stack
+    \item[\textbf{Other Tools}] Pi-hole, Mailu, Jitsi, Elasticsearch
+    \item[\textbf{Soft Skills}] Team Collaboration, Problem Solving, Adaptability, Self-Motivation, Agile Methodology
+  \end{itemize}
+\end{multicols}
+
+%------------%
+% Experience %
+%------------%
+\section{Professional Experience}
+
+\headingBf{Torfehnegar Holding}{May 2024 -- Present}
+\headingIt{Software Engineer}{Tehran, Iran}
+\begin{resume_list}
+  \item Optimized MongoDB query performance by over 40\%, reducing API latency.
+  \item Built a secure multi-data-center network using Tailscale and Pi-hole.
+  \item Architected a multi-tenant microservices platform with FastAPI.
+  \item Established CI/CD pipelines using GitLab Actions for automated deployment.
+  \item Deployed observability tools (Sentry, Prometheus, Grafana) for proactive monitoring.
+  \item Managed isolated environments on Proxmox VE for staging and development.
+  \item Deployed internal self-hosted services (Mailu, Jitsi) to extend platform functionality.
+\end{resume_list}
+
+\headingBf{Freelance}{Mar 2023 -- May 2024}
+\headingIt{Backend Developer}{Remote}
+\begin{resume_list}
+  \item \textbf{E-commerce Platform:} Full-stack Django/DRF system with Celery \& RabbitMQ; secure payment and async processing.
+  \item \textbf{LLM-Powered Semantic Search:} Retrieval-Augmented Generation (RAG) system for semantic query handling using LLMs.
+  \item \textbf{ASR \& Translation Tool:} Real-time English ASR integrated with multilingual translation APIs.
+\end{resume_list}
+
+%-----------%
+% Education %
+%-----------%
+\section{Education}
+
+\headingBf{University of Tehran}{2021 -- 2024}
+\headingIt{Master’s in Power Electronics}{}
+\begin{resume_list}
+  \item Ranked 4th in the National Master’s Entrance Exam (Power Electronics).
+  \item Designed control algorithms for grid-connected inverters to minimize DC-link oscillations.
+\end{resume_list}
+
+\headingBf{Daneshkargroup}{2023}
+\headingIt{Python / Django Coding Bootcamp}{}
+\begin{resume_list}
+  \item Completed intensive backend training focused on Python, Django, and RESTful API development.
+\end{resume_list}
+
+
+%-----------%
+% Projects %
+%-----------%
+\section{Projects}
+
+\headingBf{LLM-Based Semantic Search System}{2024}
+\begin{resume_list}
+  \item Developed a retrieval system integrating transformer models and vector databases for semantic search.
+\end{resume_list}
+
+\headingBf{Automated CI/CD Stack}{2024}
+\begin{resume_list}
+  \item Built a self-hosted deployment and monitoring stack using GitLab, Docker, Prometheus, and Grafana.
+\end{resume_list}
+
+\documentFooter{\thepage/\pageref{LastPage}}
+
+\end{document}
+\documentclass[a4paper,10pt]{article}
+%%%%%%%%%%%%%%%%%%%%%%%
+%% BEGIN_FILE: mteck.sty (A4-optimized inline)
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage{fontawesome5}
+\usepackage{multicol}
+\usepackage{bookmark}
+\usepackage{lastpage}
+\usepackage{CormorantGaramond}
+\usepackage{charter}
+\usepackage{xcolor}
+
+\definecolor{accentTitle}{HTML}{0e6e55}
+\definecolor{accentText}{HTML}{0e6e55}
+\definecolor{accentLine}{HTML}{a16f0b}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\urlstyle{same}
+
+% --- Adjust margins for A4 and compact layout ---
+\addtolength{\oddsidemargin}{-0.6in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1.2in}
+\addtolength{\topmargin}{-0.8in}
+\addtolength{\textheight}{1.6in}
+
+\setlength{\multicolsep}{-5pt}
+\setlength{\columnsep}{-1pt}
+\setlength{\tabcolsep}{0pt}
+\setlength{\footskip}{6pt}
+\raggedbottom
+\raggedright
+
+\input{glyphtounicode}
+\pdfgentounicode=1
+
+\newcommand{\documentTitle}[2]{
+  \begin{center}
+    {\Huge\color{accentTitle} #1}
+    \vspace{8pt}
+    {\color{accentLine} \hrule}
+    \vspace{1pt}
+    \footnotesize{#2}
+    \vspace{1pt}
+    {\color{accentLine} \hrule}
+  \end{center}
+}
+
+\newcommand{\documentFooter}[1]{
+  \setlength{\footskip}{10pt}
+  \fancyfoot[C]{\footnotesize #1}
+}
+
+\titleformat{\section}{
+  \vspace{-5pt}
+  \color{accentText}
+  \raggedright\large\bfseries
+}{}{0em}{}[\color{accentLine}\titlerule]
+
+\newcommand{\tinysection}[1]{
+  \phantomsection
+  \addcontentsline{toc}{section}{#1}
+  {\large{\bfseries\color{accentText}#1} {\color{accentLine} |}}
+}
+
+\newcommand{\heading}[2]{
+  \hspace{10pt}#1\hfill#2\\
+}
+
+\newcommand{\headingBf}[2]{\heading{\textbf{#1}}{\textbf{#2}}}
+\newcommand{\headingIt}[2]{\heading{\textit{#1}}{\textit{#2}}}
+
+\newenvironment{resume_list}{
+  \vspace{-6pt}
+  \begin{itemize}[itemsep=-1px, parsep=0pt, leftmargin=28pt]
+}{
+  \end{itemize}
+}
+
+\renewcommand\labelitemi{--}
+%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\documentTitle{Ata Safapour}{
+  \href{tel:+989146982635}{\raisebox{-0.05\height}\faPhone\ +98 914 698 2635} ~ | ~
+  \href{mailto:safapour.ata@gmail.com}{\raisebox{-0.15\height}\faEnvelope\ safapour.ata@gmail.com} ~ | ~
+  \href{https://linkedin.com/in/ata-safapour}{\raisebox{-0.15\height}\faLinkedin\ linkedin.com/in/ata-safapour} ~ | ~
+  \href{https://github.com/ata-the-legend}{\raisebox{-0.15\height}\faGithub\ github.com/ata-the-legend}
+}
+
+%---------%
+% Summary %
+%---------%
+\tinysection{Summary}
+Software Engineer with over 2 years of experience designing, developing, and deploying scalable backend systems and DevOps solutions.
+Proficient in Python, FastAPI, and microservices architecture, with a strong foundation in power electronics and control systems.
+Experienced in optimizing database performance, implementing CI/CD automation, and deploying monitoring solutions across distributed systems.
+
+%--------%
+% Skills %
+%--------%
+\section{Skills}
+\begin{multicols}{2}
+  \begin{itemize}[itemsep=-2px, parsep=0pt, leftmargin=70pt]
+    \item[\textbf{Languages}] Python, SQL, Bash
+    \item[\textbf{Frameworks}] FastAPI, Django, Flask, Celery
+    \item[\textbf{Databases}] MongoDB, PostgreSQL
+    \item[\textbf{Message Queues}] RabbitMQ
+    \item[\textbf{DevOps}] Docker, Git, GitLab CI/CD, Proxmox, Tailscale
+    \item[\textbf{Monitoring}] Sentry, Prometheus, Grafana, ELK Stack
+    \item[\textbf{Other Tools}] Pi-hole, Mailu, Jitsi, Elasticsearch
+    \item[\textbf{Soft Skills}] Team Collaboration, Problem Solving, Adaptability, Self-Motivation, Agile Methodology
+  \end{itemize}
+\end{multicols}
+
+%------------%
+% Experience %
+%------------%
+\section{Professional Experience}
+
+\headingBf{Torfehnegar Holding}{May 2024 -- Present}
+\headingIt{Software Engineer}{Tehran, Iran}
+\begin{resume_list}
+  \item Optimized MongoDB query performance by over 40\%, reducing API latency.
+  \item Built a secure multi-data-center network using Tailscale and Pi-hole.
+  \item Architected a multi-tenant microservices platform with FastAPI.
+  \item Established CI/CD pipelines using GitLab Actions for automated deployment.
+  \item Deployed observability tools (Sentry, Prometheus, Grafana) for proactive monitoring.
+  \item Managed isolated environments on Proxmox VE for staging and development.
+  \item Deployed internal self-hosted services (Mailu, Jitsi) to extend platform functionality.
+\end{resume_list}
+
+\headingBf{Freelance}{Mar 2023 -- May 2024}
+\headingIt{Backend Developer}{Remote}
+\begin{resume_list}
+  \item \textbf{E-commerce Platform:} Full-stack Django/DRF system with Celery \& RabbitMQ; secure payment and async processing.
+  \item \textbf{LLM-Powered Semantic Search:} Retrieval-Augmented Generation (RAG) system for semantic query handling using LLMs.
+  \item \textbf{ASR \& Translation Tool:} Real-time English ASR integrated with multilingual translation APIs.
+\end{resume_list}
+
+%-----------%
+% Education %
+%-----------%
+\section{Education}
+
+\headingBf{University of Tehran}{2021 -- 2024}
+\headingIt{Master’s in Power Electronics}{}
+\begin{resume_list}
+  \item Ranked 4th in the National Master’s Entrance Exam (Power Electronics).
+  \item Designed control algorithms for grid-connected inverters to minimize DC-link oscillations.
+\end{resume_list}
+
+%-----------%
+% Projects %
+%-----------%
+\section{Projects}
+
+\headingBf{LLM-Based Semantic Search System}{2024}
+\begin{resume_list}
+  \item Developed a retrieval system integrating transformer models and vector databases for semantic search.
+\end{resume_list}
+
+\headingBf{Automated CI/CD Stack}{2024}
+\begin{resume_list}
+  \item Built a self-hosted deployment and monitoring stack using GitLab, Docker, Prometheus, and Grafana.
+\end{resume_list}
+
+\documentFooter{\thepage/\pageref{LastPage}}
+
+\end{document}

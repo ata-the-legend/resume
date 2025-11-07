@@ -1,0 +1,210 @@
+
+\documentclass[a4paper,10pt]{article}
+%%%%%%%%%%%%%%%%%%%%%%%
+%% BEGIN_FILE: mteck.sty (A4-optimized inline)
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage{fontawesome5}
+\usepackage{multicol}
+\usepackage{bookmark}
+\usepackage{lastpage}
+\usepackage{CormorantGaramond}
+\usepackage{charter}
+\usepackage{xcolor}
+\usepackage{ragged2e}
+
+\definecolor{accentTitle}{HTML}{0e6e55}
+\definecolor{accentText}{HTML}{0e6e55}
+\definecolor{accentLine}{HTML}{a16f0b}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\urlstyle{same}
+
+% --- Adjust margins for A4 and compact layout ---
+\addtolength{\oddsidemargin}{-0.6in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1.2in}
+\addtolength{\topmargin}{-0.8in}
+\addtolength{\textheight}{1.6in}
+
+\setlength{\multicolsep}{-5pt}
+\setlength{\columnsep}{-1pt}
+\setlength{\tabcolsep}{0pt}
+\setlength{\footskip}{6pt}
+\raggedbottom
+\raggedright
+
+\input{glyphtounicode}
+\pdfgentounicode=1
+
+\newcommand{\documentTitle}[2]{
+  \begin{center}
+    {\Huge\color{accentTitle} #1}
+    \vspace{8pt}
+    {\color{accentLine} \hrule}
+    \vspace{1pt}
+    \footnotesize{#2}
+    \vspace{1pt}
+    {\color{accentLine} \hrule}
+  \end{center}
+}
+
+\newcommand{\documentFooter}[1]{
+  \setlength{\footskip}{10pt}
+  \fancyfoot[C]{\footnotesize #1}
+}
+
+\titleformat{\section}{
+  \vspace{-5pt}
+  \color{accentText}
+  \raggedright\large\bfseries
+}{}{0em}{}[\color{accentLine}\titlerule]
+
+\newcommand{\tinysection}[1]{
+  \phantomsection
+  \addcontentsline{toc}{section}{#1}
+  {\large{\bfseries\color{accentText}#1} {\color{accentLine} |}}
+}
+
+\newcommand{\heading}[2]{
+  \hspace{10pt}#1\hfill#2\\
+}
+
+\newcommand{\headingBf}[2]{\heading{\textbf{#1}}{\textbf{#2}}}
+\newcommand{\headingIt}[2]{\heading{\textit{#1}}{\textit{#2}}}
+
+\newenvironment{resume_list}{
+  \vspace{-2pt}
+  \justifying
+  \begin{itemize}[itemsep=2pt, parsep=0pt, leftmargin=28pt]
+}{
+  \end{itemize}
+}
+
+\renewcommand\labelitemi{$\bullet$}
+%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+%======================%
+% Header + Summary     %
+%======================%
+
+\documentTitle{
+  {\Huge\textbf{Ata Safapour}}\\[3pt]
+  {\Large\color{accentText}\textbf{Software Engineer}}
+  }{
+    \href{tel:+989146982635}{\raisebox{-0.05\height}\faPhone\ +98 914 698 2635} ~ | ~
+    \href{mailto:safapour.ata@gmail.com}{\raisebox{-0.15\height}\faEnvelope\ safapour.ata@gmail.com} ~ | ~
+    \href{https://linkedin.com/in/ata-safapour}{\raisebox{-0.15\height}\faLinkedin\ ata-safapour} ~ | ~
+    \href{https://github.com/ata-the-legend}{\raisebox{-0.15\height}\faGithub\ ata-the-legend}
+    }
+    
+    
+    %---------%
+    % Summary %
+    %---------%
+    \tinysection{Summary}
+    Software Engineer with 2+ years of experience architecting scalable microservices and event-driven systems using Python and FastAPI. Passionate about solving complex technical challenges and delivering high-quality software solutions.
+    
+    
+    %--------%
+    % Skills %
+    %--------%
+    \section{Skills}
+    \begin{multicols}{2}
+      \begin{itemize}[itemsep=-2px, parsep=0pt, leftmargin=70pt]
+        \item[\textbf{Languages}] Python
+        \item[\textbf{Frameworks}] FastAPI, Django, Flask, Celery, FastStream
+        \item[\textbf{Databases}] MongoDB, PostgreSQL, MySQL
+        \item[\textbf{DevOps}] Docker, Git, GitLab CI/CD, Proxmox, Tailscale
+        \item[\textbf{Monitoring}] Sentry, Prometheus, Grafana, ELK Stack
+        \item[\textbf{Other Tools}] Ansible, Casdoor, Pi-hole, Mailu, Jitsi, RabbitMQ, Kong, Envoy
+      \end{itemize}
+    \end{multicols}
+    
+    %-----------%
+    % Education %
+    %-----------%
+    \section{Education}
+    
+    \headingBf{University of Tehran}{2021 -- 2024}
+    \headingIt{Master’s in Power Electronics}{}
+    \begin{resume_list}
+      \item Ranked \textbf{4th} in the National Master’s Entrance Exam (Power Electronics).
+      \item Designed control algorithms for grid-connected inverters to minimize DC-link oscillations.
+    \end{resume_list}
+
+%------------%
+% Experience %
+%------------%
+\section{Professional Experience}
+
+\headingBf{Torfehnegar Holding}{May 2024 -- Present}
+\headingIt{Software Engineer}{Tehran, Iran}
+\begin{resume_list}
+  \item Architected an \textbf{event-driven microservices platform} leveraging \textbf{FastAPI} and \textbf{RabbitMQ} for decoupled, asynchronous service communication, improving scalability and fault isolation.
+  \item Led \textbf{monolith-to-microservices migration} via the \textbf{strangler-fig pattern}, improving scalability and deployment flexibility while maintaining zero downtime.
+  \item Engineered a \textbf{multi-tenant SaaS platform} with strict tenant isolation, scaling to 10+ enterprise clients while maintaining complete data separation.
+  \item Designed and implemented a modular \textbf{Meet Microservice} supporting \textbf{Jitsi}, \textbf{Google Meet}, and \textbf{Skyroom} integrations via a \textbf{Factory design pattern}, improving modularity, reducing provider-specific coupling, and simplifying access management.
+  \item Developed \textbf{Course Management Microservice} supporting online, offline, and in-person formats using \textbf{OOP generic classes}, integrating with Notify, Meet, Space, File, and Persona services.
+  \item Enhanced the \textbf{IAM microservice} built on \textbf{Casdoor} with a \textbf{sidecar pattern}, enabling unified SSO, dynamic role assignment, and secure cross-service authentication.
+  \item Migrated the database layer from the \textbf{Motor async driver} to the \textbf{Beanie ODM}, improving code maintainability, enforcing schema validation, and enhancing type safety across services.
+  \item Improved \textbf{MongoDB} query performance by \textbf{40\%} via targeted indexing and aggregation optimization, decreasing API latency under peak load.
+  \item Built secure \textbf{multi-data-center network} using \textbf{Tailscale} mesh VPN and \textbf{Pi-hole} for DNS-level security and network segmentation.
+  \item Deployed a full observability stack with \textbf{Sentry}, \textbf{Prometheus}, \textbf{Grafana}, and the \textbf{ELK Stack} to enable real-time monitoring, alerting, and system visibility.
+  \item Implemented \textbf{GitLab CI/CD pipelines} for automated testing, building, and deployment, accelerating release cycles and improving reliability.
+\end{resume_list}
+
+\headingBf{Freelance}{Dec 2023 -- May 2024}
+\headingIt{Backend Developer}{Remote}
+\begin{resume_list}
+  \item Developed a production-ready \textbf{E-commerce Platform} using \textbf{Django} and \textbf{Django REST Framework}, integrating secure payments and asynchronous order processing via \textbf{Celery} and \textbf{RabbitMQ}.
+  \item Containerized services with \textbf{Docker} and automated deployments through \textbf{GitLab CI/CD}, reducing manual release time and improving system reliability.
+\end{resume_list}
+
+% -----------%
+% Projects %
+% -----------%
+\section{Projects}
+
+\headingBf{\href{https://colab.research.google.com/drive/1QpdJNcR7zgFlNLx9ZgY9R6k-AjCCDP9q?usp=sharing}{LLM-Based Semantic Search System}}{2024}
+\begin{resume_list}
+  \item Developed a \textbf{semantic search engine} using \textbf{Retrieval-Augmented Generation (RAG)} and transformer models for contextual document retrieval.
+\end{resume_list}
+
+\headingBf{\href{https://github.com/ata-the-legend/speech-to-text-translator}{ASR \& Translation Tool}}{2024}
+\begin{resume_list}
+  \item Designed a \textbf{microservice-based speech-to-text and translation system} using \textbf{FastAPI}, \textbf{RabbitMQ}, and \textbf{Vosk}, enabling English audio transcription and real-time Farsi translation through asynchronous messaging.
+\end{resume_list}
+
+
+%-----------------%
+% Certifications %
+%-----------------%
+\section{Certifications}
+
+\headingBf{Daneshkargroup}{2023}
+\headingIt{Python / Django Coding Bootcamp}{}
+\begin{resume_list}
+  \item Completed intensive backend training focused on Python, Django, and RESTful API development.
+\end{resume_list}
+
+\documentFooter{\thepage/\pageref{LastPage}}
+
+\end{document}
+
+% great. lets dive in to experiance section
+% this so general
+% Architected a multi-tenant microservices platform with FastAPI.
+
+% lets break it to some better bullet points
+% i will decribe my work and you should suggest some bullet points for them. bold importent key words on each bullet point. give me some advice to make this perfect.
+
